@@ -1,0 +1,14 @@
+version: '2'
+services:
+  fixitfast:
+    ports: 
+      - "8080:80"
+    build:
+      context: .      
+      args:
+        app_key: EUM-AAB-AUA
+        adrum_http: http://cdn.appdynamics.com
+        adrum_https: https://cdn.appdynamics.com
+        beacon_http: http://4513nosshcontrolle-wbbrumspa-avak3ulj.srv.ravcloud.com:7001
+        beacon_https: https://4513nosshcontrolle-wbbrumspa-avak3ulj.srv.ravcloud.com:7002     
+    restart: unless-stopped
