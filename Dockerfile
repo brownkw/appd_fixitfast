@@ -8,12 +8,13 @@ ARG beacon_https=https://4513nosshcontrolle-wbbrumspa-avak3ulj.srv.ravcloud.com:
 
 RUN npm config set user 0 && npm config set unsafe-perm true
 RUN npm cache clean --force
-RUN npm install -g @oracle/ojet-cli
-RUN npm install -g @oracle/oraclejet-tooling
 RUN mkdir -p /root/FixItFast
 ADD app /root/FixItFast
 
 WORKDIR /root/FixItFast
+
+RUN npm install -g @oracle/ojet-cli
+RUN npm install @oracle/oraclejet-tooling --save
 
 RUN sed -i "s|##APP_KEY##|${app_key}|g" ./src/index.html
 RUN sed -i "s|##ADRUM_HTTP##|${adrum_http}|g" ./src/index.html
