@@ -1,4 +1,4 @@
-FROM node:10.16.3-alpine AS builder
+FROM node:10.16.3 AS builder
 
 ARG app_key=EUM-AAB-AUA
 ARG adrum_http=http://cdn.appdynamics.com
@@ -7,6 +7,7 @@ ARG beacon_http=http://4513nosshcontrolle-wbbrumspa-avak3ulj.srv.ravcloud.com:70
 ARG beacon_https=https://4513nosshcontrolle-wbbrumspa-avak3ulj.srv.ravcloud.com:7002 
 
 RUN npm config set user 0 && npm config set unsafe-perm true
+RUN npm cache clean --force
 RUN npm install -g @oracle/ojet-cli
 RUN npm install -g @oracle/oraclejet-tooling
 RUN mkdir -p /root/FixItFast
