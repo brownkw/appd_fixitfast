@@ -6,6 +6,7 @@ ARG adrum_https=https://cdn.appdynamics.com
 ARG beacon_http=http://4513nosshcontrolle-wbbrumspa-avak3ulj.srv.ravcloud.com:7001
 ARG beacon_https=https://4513nosshcontrolle-wbbrumspa-avak3ulj.srv.ravcloud.com:7002 
 
+RUN npm config set user 0 && npm config set unsafe-perm true
 RUN npm install -g @oracle/ojet-cli @oracle/oraclejet-tooling
 RUN mkdir -p /root/FixItFast
 ADD app /root/FixItFast
